@@ -71,4 +71,52 @@ Usando el método ```findByResponsible``` por ```charles@natural.com``` con una 
 
 En MongoDB Atlas:
 
-![](/img/1.jpg)
+![](/img/2.jpg)
+
+## Part 2: Custom configuration and Queries
+
+##### Query 1
+
+- Todos where the dueDate has expired
+
+```query.addCriteria(Criteria.where("responsible").is("Darwin@natural.com").and("priority").gt(4));```
+
+![](/img/3.jpg)
+
+##### Query 2
+
+- Todos that are assigned to given user and have priority greater equal to 5
+
+```query.addCriteria(Criteria.where("responsible").is("Darwin@natural.com").and("priority").gt(4));```
+
+![](/img/4.jpg)
+
+##### Query 3
+
+- Users that have assigned more than 2 Todos.
+
+![](/img/5.jpg)
+
+##### Query 4
+
+- Todos that contains a description with a length greater than 30 characters
+
+```query3.addCriteria(Criteria.where("description").regex("[a-z,A-Z,0-9, ' ', ]{30,}"));```
+
+![](/img/6.jpg)
+
+#### Implement the queries of the previous step using derived query methods in your repository interface. Is it possible to implement all of them?
+
+##### Query 1
+
+![](/img/7.jpg)
+
+##### Query 2
+
+![](/img/8.jpg)
+
+##### Query 4
+
+![](/img/9.jpg)
+
+No fue posible implementar la consulta 3 en la interface del repositorio ya que esta usa dos colecciones distintas.

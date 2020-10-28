@@ -2,6 +2,8 @@ package eci.ieti.data.model;
 
 import org.springframework.data.annotation.Id;
 
+import java.util.Date;
+
 /**
  *
  * @author Diego23p
@@ -10,14 +12,16 @@ public class Todo {
     @Id
     private String id;
     
-    private String description,  dueDate, responsible, status;
+    private String description,  responsible, status;
+
+    private Date dueDate;
     
     private int priority;
     
     public Todo() {
     }
     
-    public Todo(String description, int priority, String dueDate, String responsible, String status) {
+    public Todo(String description, int priority, Date dueDate, String responsible, String status) {
         this.description = description;
         this.priority = priority;
         this.dueDate = dueDate;
@@ -49,11 +53,11 @@ public class Todo {
         this.priority = priority;
     }
 
-    public String getDueDate() {
+    public Date getDueDate() {
         return dueDate;
     }
 
-    public void setDueDate(String dueDate) {
+    public void setDueDate(Date dueDate) {
         this.dueDate = dueDate;
     }
 
